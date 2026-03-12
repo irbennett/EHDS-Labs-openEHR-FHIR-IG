@@ -48,6 +48,10 @@ pages:
     title: Home
   examples.md:
     title: Examples
+    hepatic-function-panel.md:
+      title: Hepatic function panel
+    placeholder-example.md:
+      title: Placeholder Example
   artifacts.xml:
     title: Artifacts
 
@@ -75,7 +79,9 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Examples: examples.html
+  Examples:
+    Hepatic function panel: hepatic-function-panel.html
+    Placeholder Example: placeholder-example.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
