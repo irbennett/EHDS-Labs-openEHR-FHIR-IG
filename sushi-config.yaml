@@ -3,11 +3,15 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: fhir.exampleian
-canonical: http://exampleian.org
-name: ExampleIG_Ian
-# title: Example Title
-# description: Example Implementation Guide for getting started with SUSHI
+# Package / IG id (NPM-style). Regenerates ImplementationGuide-{id}.json — keep ig.ini in sync.
+id: openehr.ehds.fhir.dataexchange
+# Base URL for this IG; set to your real publication URL before release (GitHub Pages, etc.).
+canonical: https://fhir.openehr.org/ig/ehds-dataexchange
+# Machine-oriented name (ASCII, no spaces) — appears as "Computable Name" in the IG.
+name: OpenEHREHDSDataExchange
+# Human-readable title in the IG header, yellow banner, and browser tab (edit this string)
+title: EHDS openEHR data exchange
+description: FHIR Implementation Guide supporting data exchange using openEHR
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -23,15 +27,9 @@ publisher:
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
-#
-# dependencies:
-#   hl7.fhir.us.core: 3.1.0
-#   hl7.fhir.us.mcode:
-#     id: mcode
-#     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
-#     version: 1.0.0
-#
-#
+dependencies:
+  openehr.base: 0.1.0-snapshot
+
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
 # this file, it is assumed that the author will fully manage the
@@ -51,7 +49,9 @@ pages:
     hepatic-function-panel.md:
       title: Hepatic function panel
     placeholder-example.md:
-      title: Placeholder Example
+      title: AQL view lab tests
+    aql-view-lab-results.md:
+      title: AQL View lab results
   artifacts.xml:
     title: Artifacts
 
@@ -80,8 +80,10 @@ pages:
 menu:
   Home: index.html
   Examples:
+    Examples overview: examples.html
     Hepatic function panel: hepatic-function-panel.html
-    Placeholder Example: placeholder-example.html
+    AQL view lab tests: placeholder-example.html
+    AQL View lab results: aql-view-lab-results.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

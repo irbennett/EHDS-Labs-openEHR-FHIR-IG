@@ -1,13 +1,9 @@
-# Hepatic function panel
+# Hepatic function panel with analyte results for ALP and Bilirubin
 
-Example composition for a hepatic function panel in flat JSON format (OpenEHR path-based representation).
+Example composition payload showing a hepatic function panel with associated analyte results for ALP and Bilirubin represented in flat JSON format (OpenEHR path-based representation). This payload can be POSTed to openEHR Clinical Data Repository to save a compositiion.
 
 ```json
 {
-  "generic_laboratory_report/_uid": "ba0c538d-7473-4741-b64c-60d0b62ed547::default::1",
-  "generic_laboratory_report/_feeder_audit/originating_system_audit|system_id": "FormRenderer",
-  "generic_laboratory_report/_feeder_audit/original_content": "{}",
-  "generic_laboratory_report/_feeder_audit/original_content|formalism": "application/json",
   "generic_laboratory_report/language|code": "en",
   "generic_laboratory_report/language|terminology": "ISO_639-1",
   "generic_laboratory_report/territory|code": "SI",
