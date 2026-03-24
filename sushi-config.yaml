@@ -5,8 +5,9 @@
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 # Package / IG id (NPM-style). Regenerates ImplementationGuide-{id}.json — keep ig.ini in sync.
 id: openehr.ehds.fhir.dataexchange
-# Base URL for this IG; set to your real publication URL before release (GitHub Pages, etc.).
-canonical: https://fhir.openehr.org/ig/ehds-dataexchange
+# GitHub Pages project site: https://<github-username>.github.io/<repo-name>/
+# Change username/repo if yours differ, then run sushi before publishing.
+canonical: https://ianbennett.github.io/ExampleIG_Ian
 # Machine-oriented name (ASCII, no spaces) — appears as "Computable Name" in the IG.
 name: OpenEHREHDSDataExchange
 # Human-readable title in the IG header, yellow banner, and browser tab (edit this string)

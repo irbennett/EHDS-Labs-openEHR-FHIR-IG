@@ -1,0 +1,84 @@
+# Build FHIR IG (SUSHI + HL7 IG Publisher) and deploy ./output to GitHub Pages.
+#
+# One-time repo setup:
+#   Settings → Pages → Build and deployment → Source: GitHub Actions
+# If your site URL is not https://ianbennett.github.io/ExampleIG_Ian/ , edit
+# canonical in sushi-config.yaml to match (https://<user>.github.io/<repo>/).
+
+name: Publish IG to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install SUSHI
+        run: npm install -g fsh-sushi
+
+      - name: Run SUSHI
+        run: sushi .
+
+      - name: Cache IG Publisher
+        id: cache-publisher
+        uses: actions/cache@v4
+        with:
+          path: input-cache/publisher.jar
+          key: ig-publisher-${{ runner.os }}-v1
+
+      - name: Download IG Publisher
+        if: steps.cache-publisher.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p input-cache
+          curl -fsSL -o input-cache/publisher.jar \
+            https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+
+      - name: Run IG Publisher
+        run: java -jar input-cache/publisher.jar -ig . -no-sushi
+        env:
+          JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+      - name: Disable Jekyll (FHIR IG uses paths GitHub would otherwise ignore)
+        run: touch output/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
