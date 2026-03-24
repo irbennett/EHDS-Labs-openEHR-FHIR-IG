@@ -4,6 +4,9 @@
 #   Settings → Pages → Build and deployment → Source: GitHub Actions
 # If your site URL is not https://ianbennett.github.io/ExampleIG_Ian/ , edit
 # canonical in sushi-config.yaml to match (https://<user>.github.io/<repo>/).
+#
+# Troubleshooting: the summary "exit code 1" does not show which step failed.
+# Open the workflow run → build job → click the step with a red X → read the log.
 
 name: Publish IG to GitHub Pages
 
@@ -11,6 +14,10 @@ on:
   push:
     branches: [main, master]
   workflow_dispatch:
+
+# Use Node 24 for @actions/* scripts (reduces Node 20 deprecation warnings).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: read
@@ -29,19 +36,28 @@ jobs:
       JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8 -Xmx5g"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
+      - name: "Verify IG files are in the repo (fix: push missing paths)"
+        run: |
+          set -e
+          test -f ig.ini || { echo "::error::Missing ig.ini"; exit 1; }
+          test -f sushi-config.yaml || { echo "::error::Missing sushi-config.yaml"; exit 1; }
+          test -d ian-ig-template/package || { echo "::error::Missing ian-ig-template/package — add ian-ig-template/ to git and push"; exit 1; }
+          test -d input/fsh || { echo "::error::Missing input/fsh"; exit 1; }
+          echo "Layout OK"
 
       - name: OS packages (IG Publisher / diagrams)
         run: sudo apt-get update && sudo apt-get install -y graphviz
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
 
@@ -51,7 +67,7 @@ jobs:
 
       - name: Cache IG Publisher
         id: cache-publisher
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: input-cache/publisher.jar
           key: ig-publisher-${{ runner.os }}-v1
@@ -63,13 +79,22 @@ jobs:
           curl -fsSL -o input-cache/publisher.jar \
             https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
 
+      # Publisher finishes by running `jekyll build` — Jekyll is not on ubuntu-latest by default.
+      - name: Setup Ruby + Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Install Jekyll CLI
+        run: gem install jekyll --no-document && jekyll --version
+
       # -no-sushi: SUSHI already ran. -tx n/a: avoids flaky tx.fhir.org calls in CI (optional: remove for stricter builds).
       - name: Run IG Publisher
         run: java -jar input-cache/publisher.jar -ig . -no-sushi -tx n/a
 
       - name: Disable Jekyll (FHIR IG uses paths GitHub would otherwise ignore)
-        run: touch output/.nojekyll
+        run: mkdir -p output && touch output/.nojekyll
 
+      # Stay on v3: v4 omits dotfiles by default, so .nojekyll would not reach Pages.
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
