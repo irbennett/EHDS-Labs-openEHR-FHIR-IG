@@ -24,9 +24,15 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # IG Publisher is memory-heavy; default heap often OOMs on GitHub runners.
+      JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8 -Xmx5g"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: OS packages (IG Publisher / diagrams)
+        run: sudo apt-get update && sudo apt-get install -y graphviz
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -37,13 +43,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
-      - name: Install SUSHI
-        run: npm install -g fsh-sushi
-
+      # npx avoids "sushi: command not found" when global npm bin is not on PATH
       - name: Run SUSHI
-        run: sushi .
+        run: npx --yes fsh-sushi .
 
       - name: Cache IG Publisher
         id: cache-publisher
@@ -59,10 +63,9 @@ jobs:
           curl -fsSL -o input-cache/publisher.jar \
             https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
 
+      # -no-sushi: SUSHI already ran. -tx n/a: avoids flaky tx.fhir.org calls in CI (optional: remove for stricter builds).
       - name: Run IG Publisher
-        run: java -jar input-cache/publisher.jar -ig . -no-sushi
-        env:
-          JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+        run: java -jar input-cache/publisher.jar -ig . -no-sushi -tx n/a
 
       - name: Disable Jekyll (FHIR IG uses paths GitHub would otherwise ignore)
         run: touch output/.nojekyll
