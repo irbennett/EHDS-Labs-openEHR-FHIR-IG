@@ -45,9 +45,17 @@ Id: DvInterval-DvDateTime
 * . ^short = "Interval DateTime"
 * . ^definition = "openEHR Interval DateTime"
 
+
 Logical: DvQuantity
 Parent: DV_QUANTITY
 Id: DvQuantity
+* ^version = "1.0.0"
+* . ^short = "Quantity"
+* . ^definition = "openEHR Quantity"
+
+Logical: DvIntervalDvQuantity
+Parent: DV_QUANTITY
+Id: DvInterval-DvQuantity
 * ^version = "1.0.0"
 * . ^short = "Quantity"
 * . ^definition = "openEHR Quantity"
@@ -58,6 +66,13 @@ Id: DvCount
 * ^version = "1.0.0"
 * . ^short = "Count"
 * . ^definition = "openEHR Count"
+
+Logical: DvIntervalDvCount
+Parent: DV_COUNT
+Id: DvInterval-DvCount
+* ^version = "1.0.0"
+* . ^short = "Interval of count"
+* . ^definition = "openEHR Interval of Count"
 
 Logical: DvIdentifier
 Parent: DV_IDENTIFIER
@@ -122,12 +137,40 @@ Id: DvDate
 * . ^short = "Date"
 * . ^definition = "openEHR Date"
 
+Logical: DvIntervalDvDate
+Parent: DV_DATE
+Id: DvInterval-DvDate
+* ^version = "1.0.0"
+* . ^short = "Interval of Date"
+* . ^definition = "openEHR Interval of Date"
+
 Logical: DvTime
 Parent: DV_TIME
 Id: DvTime
 * ^version = "1.0.0"
 * . ^short = "Time"
 * . ^definition = "openEHR Time"
+
+Logical: DvIntervalDvTime
+Parent: DV_TIME
+Id: DvInterval-DvTime
+* ^version = "1.0.0"
+* . ^short = "Time"
+* . ^definition = "openEHR Time"
+
+Logical: DvDuration
+Parent: DV_DURATION
+Id: DvDuration
+* ^version = "1.0.0"
+* . ^short = "Duration"
+* . ^definition = "openEHR Duration"
+
+Logical: DvIntervalDvDuration
+Parent: DV_DURATION
+Id: DvInterval-DvDuration
+* ^version = "1.0.0"
+* . ^short = "Interval of duration"
+* . ^definition = "openEHR Interval of duration"
 
 Logical: DvCodePhrase
 Parent: CODE_PHRASE
