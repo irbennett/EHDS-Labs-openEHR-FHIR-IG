@@ -1,19 +1,19 @@
-Logical: DvCodedText
-Parent: DV_CODED_TEXT
-Description: "openEHR CodedText FSH wrapper"
-Id: DvCodedText
-Characteristics: #can-bind
-* ^version = "1.0.0"
-* . ^short = "openEHR CodedText"
+//Logical: DvCodedText
+//Parent: DV_CODED_TEXT
+//Description: "openEHR CodedText FSH wrapper"
+//Id: DvCodedText
+//Characteristics: #can-bind
+//* ^version = "1.0.0"
+//* . ^short = "openEHR CodedText"
 
 
-Logical: DvText
-Parent: DV_TEXT
-Id: DvText
-Characteristics: #can-bind
-* ^version = "1.0.0"
-* . ^short = "Text"
-* . ^definition = "openEHR Text"
+//Logical: DvText
+//Parent: DV_TEXT
+//Id: DvText
+//Characteristics: #can-bind
+//* ^version = "1.0.0"
+//* . ^short = "Text"
+//* . ^definition = "openEHR Text"
 
 Logical: DvOrdinal
 Parent: DV_ORDINAL
@@ -31,27 +31,27 @@ Characteristics: #can-bind
 * . ^short = "Scale"
 * . ^definition = "openEHR Scale"
 
-Logical: DvDateTime
-Parent: DV_DATE_TIME
-Id: DvDateTime
-* ^version = "1.0.0"
-* . ^short = "DateTime"
-* . ^definition = "openEHR DateTime"
+//Logical: DvDateTime
+//Parent: DV_DATE_TIME
+//Id: DvDateTime
+//* ^version = "1.0.0"
+//* . ^short = "DateTime"
+//* . ^definition = "openEHR DateTime"
 
-Logical: DvIntervalDvDateTime
-Parent: DV_DATE_TIME
-Id: DvInterval-DvDateTime
-* ^version = "1.0.0"
-* . ^short = "Interval DateTime"
-* . ^definition = "openEHR Interval DateTime"
+//Logical: DvIntervalDvDateTime
+//Parent: DV_DATE_TIME
+//Id: DvInterval-DvDateTime
+//* ^version = "1.0.0"
+//* . ^short = "Interval DateTime"
+//* . ^definition = "openEHR Interval DateTime"
 
 
-Logical: DvQuantity
-Parent: DV_QUANTITY
-Id: DvQuantity
-* ^version = "1.0.0"
-* . ^short = "Quantity"
-* . ^definition = "openEHR Quantity"
+//Logical: DvQuantity
+//Parent: DV_QUANTITY
+//Id: DvQuantity
+//* ^version = "1.0.0"
+//* . ^short = "Quantity"
+//* . ^definition = "openEHR Quantity"
 
 Logical: DvIntervalDvQuantity
 Parent: DV_QUANTITY
