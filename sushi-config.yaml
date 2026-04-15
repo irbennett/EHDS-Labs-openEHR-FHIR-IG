@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 # Package / IG id (NPM-style). Regenerates ImplementationGuide-{id}.json — keep ig.ini in sync.
-id: openehr.org.ig.ehds.test
+id: openehr.ehds.fhir.dataexchange
 # GitHub Pages project site: https://<github-username>.github.io/<repo-name>/
 # Change username/repo if yours differ, then run sushi before publishing.
 canonical: http://openehr.org/ig/ehds-test
