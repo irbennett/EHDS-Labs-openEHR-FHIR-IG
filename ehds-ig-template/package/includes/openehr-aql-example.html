@@ -1,5 +1,5 @@
 {% comment %}
-  openehr-aql-example.html — render an openEHR AQL query with an optional response tab.
+  openehr-aql-example.html — render an openEHR AQL query with an optional response section.
 
   Files must be placed in input/includes/openehr-input/templates/{template}/aql/
   using the naming convention:
@@ -9,9 +9,11 @@
   Parameters:
     base      (required) Stem shared by the AQL and optional response files.
     template  (required) Subdirectory name under openehr-input/templates/ containing aql/.
-    title     (optional) Human-readable heading shown above the tabs.
-    response  Set to true to render the Response JSON tab. The .response.json file must exist.
+    title     (optional) Human-readable heading shown above the sections.
+    response  Set to true to render the Response JSON section.
 
+  AQL is rendered using language-sql highlighting (closest available in highlight.js).
+  Each section has a copy button using the publisher's bundled ClipboardJS (.btn-copy).
   Prefer using oeAql.html which looks up template, base, and response flag from openehr_aql.json.
 {% endcomment %}
 
@@ -23,22 +25,18 @@
 
 <div class="openehr-example-set">
 {% if include.title %}<h4 class="openehr-example-title">{{ include.title }}</h4>{% endif %}
-<ul class="nav nav-tabs openehr-format-tabs">
-  <li class="active"><a class="openehr-tab-link" href="#{{ _oa_id }}-aql">AQL</a></li>
-  {% if _oa_show_response %}<li><a class="openehr-tab-link" href="#{{ _oa_id }}-response">Response</a></li>{% endif %}
-</ul>
-<div class="openehr-tab-content">
-  {% assign _oa_aql_file = _oa_aql_prefix | append: include.base | append: ".aql" %}
-  {% capture _oa_aql_content %}{% include {{ _oa_aql_file }} %}{% endcapture %}
-  <div id="{{ _oa_id }}-aql" class="openehr-tab-pane active">
-    <pre class="cm-s-ehrexplorer"><code class="language-aql">{{ _oa_aql_content | xml_escape }}</code></pre>
-  </div>
-  {% if _oa_show_response %}
-  {% assign _oa_response_file = _oa_aql_prefix | append: include.base | append: ".response.json" %}
-  {% capture _oa_response_content %}{% include {{ _oa_response_file }} %}{% endcapture %}
-  <div id="{{ _oa_id }}-response" class="openehr-tab-pane">
-    <pre class="cm-s-ehrexplorer"><code class="language-json">{{ _oa_response_content | xml_escape }}</code></pre>
-  </div>
-  {% endif %}
-</div>
+{% assign _oa_aql_file = _oa_aql_prefix | append: include.base | append: ".aql" %}
+{% capture _oa_aql_content %}{% include {{ _oa_aql_file }} %}{% endcapture %}
+<details open>
+  <summary><strong>AQL</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oa_id }}-aql"></button></summary>
+  <pre><code class="language-sql" id="{{ _oa_id }}-aql">{{ _oa_aql_content | xml_escape }}</code></pre>
+</details>
+{% if _oa_show_response %}
+{% assign _oa_response_file = _oa_aql_prefix | append: include.base | append: ".response.json" %}
+{% capture _oa_response_content %}{% include {{ _oa_response_file }} %}{% endcapture %}
+<details>
+  <summary><strong>Response</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oa_id }}-response"></button></summary>
+  <pre><code class="language-json" id="{{ _oa_id }}-response">{{ _oa_response_content | xml_escape }}</code></pre>
+</details>
+{% endif %}
 </div>
