@@ -14,7 +14,7 @@ name: OpenEHREHDSTestIG
 title: EHDS openEHR Test IG
 description: FHIR Implementation Guide supporting data exchange using openEHR
 status: draft # draft | active | retired | unknown
-version: 0.1.0
+version: 0.2.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2026+
 releaseLabel: ci-build
