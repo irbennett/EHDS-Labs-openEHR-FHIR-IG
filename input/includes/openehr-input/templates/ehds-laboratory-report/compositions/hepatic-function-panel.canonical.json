@@ -1,0 +1,720 @@
+{
+  "_type": "COMPOSITION",
+  "name": {
+    "_type": "DV_TEXT",
+    "value": "Generic laboratory report"
+  },
+  "archetype_node_id": "openEHR-EHR-COMPOSITION.generic_laboratory_report.v1",
+  "archetype_details": {
+    "_type": "ARCHETYPED",
+    "archetype_id": {
+      "_type": "ARCHETYPE_ID",
+      "value": "openEHR-EHR-COMPOSITION.generic_laboratory_report.v1"
+    },
+    "template_id": {
+      "_type": "TEMPLATE_ID",
+      "value": "EHDS - Laboratory report"
+    },
+    "rm_version": "1.1.0"
+  },
+  "uid": {
+    "_type": "OBJECT_VERSION_ID",
+    "value": "ba0c538d-7473-4741-b64c-60d0b62ed547::default::1"
+  },
+  "language": {
+    "_type": "CODE_PHRASE",
+    "terminology_id": {
+      "_type": "TERMINOLOGY_ID",
+      "value": "ISO_639-1"
+    },
+    "code_string": "en"
+  },
+  "territory": {
+    "_type": "CODE_PHRASE",
+    "terminology_id": {
+      "_type": "TERMINOLOGY_ID",
+      "value": "ISO_3166-1"
+    },
+    "code_string": "SI"
+  },
+  "category": {
+    "_type": "DV_CODED_TEXT",
+    "value": "event",
+    "defining_code": {
+      "_type": "CODE_PHRASE",
+      "terminology_id": {
+        "_type": "TERMINOLOGY_ID",
+        "value": "openehr"
+      },
+      "code_string": "433"
+    }
+  },
+  "composer": {
+    "_type": "PARTY_IDENTIFIED",
+    "name": "ian.bennett@better.care"
+  },
+  "context": {
+    "_type": "EVENT_CONTEXT",
+    "start_time": {
+      "_type": "DV_DATE_TIME",
+      "value": "2026-03-12T23:41:00.77633228+01:00"
+    },
+    "setting": {
+      "_type": "DV_CODED_TEXT",
+      "value": "other care",
+      "defining_code": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "openehr"
+        },
+        "code_string": "238"
+      }
+    },
+    "other_context": {
+      "_type": "ITEM_TREE",
+      "name": {
+        "_type": "DV_TEXT",
+        "value": "Context"
+      },
+      "items": [
+        {
+          "_type": "ELEMENT",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "Report ID"
+          },
+          "value": {
+            "_type": "DV_TEXT",
+            "value": "LabTest01"
+          }
+        },
+        {
+          "_type": "CLUSTER",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "Recipient"
+          },
+          "items": [
+            {
+              "_type": "ELEMENT",
+              "name": {
+                "_type": "DV_TEXT",
+                "value": "Name"
+              },
+              "value": {
+                "_type": "DV_TEXT",
+                "value": "Dr Mark Willis"
+              }
+            },
+            {
+              "_type": "ELEMENT",
+              "name": {
+                "_type": "DV_TEXT",
+                "value": "Identifier"
+              },
+              "value": {
+                "_type": "DV_TEXT",
+                "value": "12398813"
+              }
+            },
+            {
+              "_type": "CLUSTER",
+              "name": {
+                "_type": "DV_TEXT",
+                "value": "Organisation"
+              },
+              "items": [
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Name"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "TD008362 PATH LAB 001"
+                  }
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Identifier"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "Y8J7D"
+                  }
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Identifier issuer"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "https://fhir.nhs.uk/Id/ods-organization-code"
+                  }
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Comment"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "Organization resource in FHIR"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "content": [
+    {
+      "_type": "INSTRUCTION",
+      "name": {
+        "_type": "DV_TEXT",
+        "value": "Service request"
+      },
+      "uid": {
+        "_type": "OBJECT_VERSION_ID",
+        "value": "0b84ee3f-5add-4335-adda-2502efa256b1"
+      },
+      "narrative": {
+        "_type": "DV_TEXT",
+        "value": "<none>"
+      },
+      "language": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "ISO_639-1"
+        },
+        "code_string": "en"
+      },
+      "encoding": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "IANA_character-sets"
+        },
+        "code_string": "UTF-8"
+      },
+      "activities": [
+        {
+          "_type": "ACTIVITY",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "Current activity"
+          },
+          "description": {
+            "_type": "ITEM_TREE",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Activity description"
+            },
+            "items": [
+              {
+                "_type": "ELEMENT",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Service name"
+                },
+                "value": {
+                  "_type": "DV_TEXT",
+                  "value": "Hepatic function panel"
+                }
+              },
+              {
+                "_type": "CLUSTER",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Reason for request"
+                },
+                "items": [
+                  {
+                    "_type": "ELEMENT",
+                    "name": {
+                      "_type": "DV_TEXT",
+                      "value": "Reason"
+                    },
+                    "value": {
+                      "_type": "DV_TEXT",
+                      "value": "Jaundice"
+                    }
+                  }
+                ]
+              },
+              {
+                "_type": "CLUSTER",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Specimen"
+                },
+                "items": [
+                  {
+                    "_type": "ELEMENT",
+                    "name": {
+                      "_type": "DV_TEXT",
+                      "value": "Specimen type"
+                    },
+                    "value": {
+                      "_type": "DV_TEXT",
+                      "value": "Blood"
+                    }
+                  },
+                  {
+                    "_type": "ELEMENT",
+                    "name": {
+                      "_type": "DV_TEXT",
+                      "value": "Collection date/time"
+                    },
+                    "value": {
+                      "_type": "DV_DATE_TIME",
+                      "value": "2026-03-11T00:00:00Z"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "timing": {
+            "_type": "DV_TEXT",
+            "value": "R1"
+          }
+        }
+      ],
+      "protocol": {
+        "_type": "ITEM_TREE",
+        "name": {
+          "_type": "DV_TEXT",
+          "value": "Service request protocol"
+        },
+        "items": [
+          {
+            "_type": "CLUSTER",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Requester order identifier"
+            },
+            "items": [
+              {
+                "_type": "ELEMENT",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Identifier value"
+                },
+                "value": {
+                  "_type": "DV_TEXT",
+                  "value": "REQ-20220307-000046-001"
+                }
+              }
+            ]
+          },
+          {
+            "_type": "CLUSTER",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Order placer"
+            },
+            "items": [
+              {
+                "_type": "ELEMENT",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Name"
+                },
+                "value": {
+                  "_type": "DV_TEXT",
+                  "value": "Dr David Derbyshire"
+                }
+              },
+              {
+                "_type": "ELEMENT",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Identifier"
+                },
+                "value": {
+                  "_type": "DV_TEXT",
+                  "value": "6599124"
+                }
+              },
+              {
+                "_type": "CLUSTER",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Organisation"
+                },
+                "items": [
+                  {
+                    "_type": "ELEMENT",
+                    "name": {
+                      "_type": "DV_TEXT",
+                      "value": "Name"
+                    },
+                    "value": {
+                      "_type": "DV_TEXT",
+                      "value": "PICKERING MEDICAL PRACTICE"
+                    }
+                  },
+                  {
+                    "_type": "ELEMENT",
+                    "name": {
+                      "_type": "DV_TEXT",
+                      "value": "Identifier"
+                    },
+                    "value": {
+                      "_type": "DV_TEXT",
+                      "value": "134350950"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_type": "CLUSTER",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Receiver order identifier"
+            },
+            "items": [
+              {
+                "_type": "ELEMENT",
+                "name": {
+                  "_type": "DV_TEXT",
+                  "value": "Identifier value"
+                },
+                "value": {
+                  "_type": "DV_TEXT",
+                  "value": "REQ-20220307-000046"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "OBSERVATION",
+      "name": {
+        "_type": "DV_TEXT",
+        "value": "Laboratory test result"
+      },
+      "uid": {
+        "_type": "OBJECT_VERSION_ID",
+        "value": "423bcfa4-f69a-49c4-b641-686492dc8ca6"
+      },
+      "language": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "ISO_639-1"
+        },
+        "code_string": "en"
+      },
+      "encoding": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "IANA_character-sets"
+        },
+        "code_string": "UTF-8"
+      },
+      "subject": {
+        "_type": "PARTY_SELF"
+      },
+      "data": {
+        "_type": "HISTORY",
+        "origin": {
+          "_type": "DV_DATE_TIME",
+          "value": "2026-03-12T23:41:00.77633228+01:00"
+        },
+        "events": [
+          {
+            "_type": "POINT_EVENT",
+            "time": {
+              "_type": "DV_DATE_TIME",
+              "value": "2026-03-12T23:41:00.77633228+01:00"
+            },
+            "data": {
+              "_type": "ITEM_TREE",
+              "name": {
+                "_type": "DV_TEXT",
+                "value": "Laboratory results"
+              },
+              "items": [
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Requested test"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "Hepatic function panel"
+                  }
+                },
+                {
+                  "_type": "CLUSTER",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Specimen"
+                  },
+                  "items": [
+                    {
+                      "_type": "ELEMENT",
+                      "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Specimen type"
+                      },
+                      "value": {
+                        "_type": "DV_TEXT",
+                        "value": "Blood"
+                      }
+                    },
+                    {
+                      "_type": "ELEMENT",
+                      "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Collection date/time"
+                      },
+                      "value": {
+                        "_type": "DV_DATE_TIME",
+                        "value": "2026-03-11T00:00:00Z"
+                      }
+                    },
+                    {
+                      "_type": "ELEMENT",
+                      "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Adequacy for testing"
+                      },
+                      "value": {
+                        "_type": "DV_CODED_TEXT",
+                        "value": "Satisfactory",
+                        "defining_code": {
+                          "_type": "CODE_PHRASE",
+                          "terminology_id": {
+                            "_type": "TERMINOLOGY_ID",
+                            "value": "local"
+                          },
+                          "code_string": "at0062"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Overall test status"
+                  },
+                  "value": {
+                    "_type": "DV_CODED_TEXT",
+                    "value": "Final",
+                    "defining_code": {
+                      "_type": "CODE_PHRASE",
+                      "terminology_id": {
+                        "_type": "TERMINOLOGY_ID",
+                        "value": "local"
+                      },
+                      "code_string": "at0038"
+                    }
+                  }
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Overall test status timestamp"
+                  },
+                  "value": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2026-03-11T00:00:00Z"
+                  }
+                },
+                {
+                  "_type": "ELEMENT",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Diagnostic service category"
+                  },
+                  "value": {
+                    "_type": "DV_TEXT",
+                    "value": "Biochemistry"
+                  }
+                },
+                {
+                  "_type": "CLUSTER",
+                  "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Laboratory analyte result"
+                  },
+                  "items": [
+                    {
+                      "_type": "CLUSTER",
+                      "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Analyte 1"
+                      },
+                      "items": [
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Analyte name"
+                          },
+                          "value": {
+                            "_type": "DV_TEXT",
+                            "value": "Total bilirubin substance concentration in serum"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Result"
+                          },
+                          "value": {
+                            "_type": "DV_QUANTITY",
+                            "magnitude": 6,
+                            "units": "umol/L"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reference range guidance"
+                          },
+                          "value": {
+                            "_type": "DV_TEXT",
+                            "value": "< 21"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Status"
+                          },
+                          "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Final",
+                            "defining_code": {
+                              "_type": "CODE_PHRASE",
+                              "terminology_id": {
+                                "_type": "TERMINOLOGY_ID",
+                                "value": "local"
+                              },
+                              "code_string": "at0018"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "CLUSTER",
+                      "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Analyte 2"
+                      },
+                      "items": [
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Analyte name"
+                          },
+                          "value": {
+                            "_type": "DV_TEXT",
+                            "value": "Alkaline phosphatase liver isoenzyme enzyme activity in serum"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Result"
+                          },
+                          "value": {
+                            "_type": "DV_QUANTITY",
+                            "magnitude": 145,
+                            "units": "iu/L"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reference range guidance"
+                          },
+                          "value": {
+                            "_type": "DV_TEXT",
+                            "value": "30 - 130"
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Status"
+                          },
+                          "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Final",
+                            "defining_code": {
+                              "_type": "CODE_PHRASE",
+                              "terminology_id": {
+                                "_type": "TERMINOLOGY_ID",
+                                "value": "local"
+                              },
+                              "code_string": "at0018"
+                            }
+                          }
+                        },
+                        {
+                          "_type": "ELEMENT",
+                          "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Comment"
+                          },
+                          "value": {
+                            "_type": "DV_TEXT",
+                            "value": "High"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "feeder_audit": {
+    "_type": "FEEDER_AUDIT",
+    "originating_system_audit": {
+      "_type": "FEEDER_AUDIT_DETAILS",
+      "system_id": "FormRenderer"
+    },
+    "original_content": {
+      "_type": "DV_PARSABLE",
+      "value": "{}",
+      "formalism": "application/json"
+    }
+  }
+}

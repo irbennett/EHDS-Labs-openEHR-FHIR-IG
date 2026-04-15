@@ -7,13 +7,13 @@ Characteristics: #can-bind
 * . ^short = ""
 
 
-Logical: DvText
-Parent: DV_TEXT
-Id: DvText
-Characteristics: #can-bind
-* ^version = "1.0.0"
-* . ^short = "Text"
-* . ^definition = "openEHR Text"
+//Logical: DvText
+//Parent: DV_TEXT
+//Id: DvText
+//Characteristics: #can-bind
+//* ^version = "1.0.0"
+//* . ^short = "Text"
+//* . ^definition = "openEHR Text"
 
 Logical: DvOrdinal
 Parent: DV_ORDINAL

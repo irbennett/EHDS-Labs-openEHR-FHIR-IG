@@ -5,9 +5,9 @@ This page shows the AQL query that returns a persisted IPS composition - the res
 ## AQL query
 
 
-The block below uses the `sql` highlighter so keywords and parameters are easier to scan; syntax is **openEHR AQL**, not SQL.
+The block below uses the `aql` highlighter; syntax is **openEHR AQL**.
 
-```sql
+```aql
 SELECT c as Composition,
     c/context/start_time/value as start_time  
     FROM EHR e[ehr_id/value = '{{ehrId}}']
