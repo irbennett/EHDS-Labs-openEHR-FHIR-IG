@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ehds-laboratory-report",
+    "templateId": "EHDS - Laboratory report",
+    "templateDir": "ehds-laboratory-report",
+    "version": "2.0.0-alpha.1",
+    "description": "Template for laboratory reports following the EHDS data model, based on the generic laboratory report archetype.",
+    "rootArchetype": "openEHR-EHR-COMPOSITION.report-result.v1",
+    "formats": { "opt": true, "wt": true }
+  },
+  {
+    "id": "international-patient-summary",
+    "templateId": "International Patient Summary",
+    "templateDir": "international-patient-summary",
+    "version": "1.3.0-alpha.26",
+    "description": "Template for the International Patient Summary document, containing key clinical sections.",
+    "rootArchetype": "openEHR-EHR-COMPOSITION.health_summary.v1",
+    "formats": { "opt": true, "wt": true }
+  },
+  {
+    "id": "carer-contingency-plan",
+    "templateId": "OL - Carer contingency plan",
+    "templateDir": "ol-carer-contingency-plan",
+    "version": "0.6.0",
+    "description": "Template for documenting carer contingency plans and anticipatory care information.",
+    "rootArchetype": "openEHR-EHR-COMPOSITION.anticipatory_care_information.v0",
+    "formats": { "opt": true, "wt": true }
+  }
+]

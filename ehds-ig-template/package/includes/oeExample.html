@@ -1,0 +1,48 @@
+{% comment %}
+  oeExample.html — shorthand include for openEHR composition example viewer.
+
+  Looks up the example in site.data.openehr_examples by its base name,
+  picks up the title and format flags automatically, then delegates to
+  openehr-example.html to render the tabbed viewer (FLAT / STRUCTURED / CANONICAL).
+
+  Usage in markdown:
+
+    {% include oeExample.html base="bp-example" %}
+    {% include oeExample.html base="bp-example" title="Custom Title" %}
+
+  Multiple examples on one page: call once per example with a unique base name.
+
+  To register a new example, add an entry to input/data/openehr_examples.json.
+  The base name must match the prefix of the files in input/includes/openehr-examples/:
+    {base}.flat.json, {base}.structured.json, {base}.canonical.json
+
+  Parameters:
+    base  (required)  Base name matching an entry in input/data/openehr_examples.json
+    title (optional)  Override the title from the data file.
+{% endcomment %}
+
+{% assign _oe_sh_entry = nil %}
+{% for _oe_sh_ex in site.data.openehr_examples %}
+  {% if _oe_sh_ex.base == include.base %}
+    {% assign _oe_sh_entry = _oe_sh_ex %}
+  {% endif %}
+{% endfor %}
+
+{% if _oe_sh_entry %}
+  {% if include.title %}
+    {% assign _oe_sh_title = include.title %}
+  {% else %}
+    {% assign _oe_sh_title = _oe_sh_entry.title %}
+  {% endif %}
+  {% include openehr-example.html
+     base=include.base
+     title=_oe_sh_title
+     flat=_oe_sh_entry.formats.flat
+     structured=_oe_sh_entry.formats.structured
+     canonical=_oe_sh_entry.formats.canonical %}
+{% else %}
+  <p class="openehr-example-missing">
+    <em>No openEHR example registered for <code>{{ include.base | xml_escape }}</code>.
+    Add an entry to <code>input/data/openehr_examples.json</code>.</em>
+  </p>
+{% endif %}

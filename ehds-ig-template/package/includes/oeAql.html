@@ -1,0 +1,55 @@
+{% comment %}
+  oeAql.html — shorthand include for openEHR AQL query viewer.
+
+  Looks up the query in site.data.openehr_aql by its id, picks up the title,
+  templateDir, base, and response flag automatically, then delegates to
+  openehr-aql-example.html to render the tabbed viewer (AQL / Response).
+
+  Usage in markdown:
+
+    {% include oeAql.html id="lab-results-composition" %}
+    {% include oeAql.html id="lab-results-composition" title="Custom Title" %}
+
+  To register a new AQL query, add an entry to input/data/openehr_aql.json with:
+    templateDir - subdirectory name under input/includes/openehr-input/templates/
+    base        - stem for the .aql (and optional .response.json) files
+    response    - true if a {base}.response.json file exists alongside the .aql
+
+  Files must live at:
+    input/includes/openehr-input/templates/{templateDir}/aql/{base}.aql
+    input/includes/openehr-input/templates/{templateDir}/aql/{base}.response.json  (optional)
+
+  Parameters:
+    id    (required)  ID matching an entry in input/data/openehr_aql.json
+    title (optional)  Override the title from the data file.
+{% endcomment %}
+
+{% assign _oa_sh_entry = nil %}
+{% for _oa_sh_q in site.data.openehr_aql %}
+  {% if _oa_sh_q.id == include.id %}
+    {% assign _oa_sh_entry = _oa_sh_q %}
+  {% endif %}
+{% endfor %}
+
+{% if _oa_sh_entry and _oa_sh_entry.base != "" %}
+  {% if include.title %}
+    {% assign _oa_sh_title = include.title %}
+  {% else %}
+    {% assign _oa_sh_title = _oa_sh_entry.title %}
+  {% endif %}
+  {% include openehr-aql-example.html
+     base=_oa_sh_entry.base
+     template=_oa_sh_entry.templateDir
+     title=_oa_sh_title
+     response=_oa_sh_entry.response %}
+{% elsif _oa_sh_entry %}
+  <p class="openehr-example-missing">
+    <em>No AQL file registered for <code>{{ include.id | xml_escape }}</code>.
+    Add <code>templateDir</code> and <code>base</code> to the entry in <code>input/data/openehr_aql.json</code>.</em>
+  </p>
+{% else %}
+  <p class="openehr-example-missing">
+    <em>No AQL query registered for <code>{{ include.id | xml_escape }}</code>.
+    Add an entry to <code>input/data/openehr_aql.json</code>.</em>
+  </p>
+{% endif %}

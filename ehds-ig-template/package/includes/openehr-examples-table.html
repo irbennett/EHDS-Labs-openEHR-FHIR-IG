@@ -1,0 +1,47 @@
+{% comment %}
+  openehr-examples-table.html — renders a summary table of all openEHR composition examples.
+
+  Data source: input/data/openehr_examples.json (maps to site.data.openehr_examples via Jekyll _data/).
+
+  Each entry in the JSON must have:
+    base        - base name used for the include files and as an anchor id
+    title       - display title (linked to the detail page)
+    description - one-line description
+    page        - target HTML page (e.g. "hepatic-function-panel.html")
+    template    - openEHR template/archetype name
+    formats     - object with boolean flags: flat, structured, canonical
+
+  To add a new example: add an entry to input/data/openehr_examples.json,
+  create the corresponding page, and place the JSON files under
+  input/includes/openehr-examples/.
+{% endcomment %}
+
+{% assign examples = site.data.openehr_examples %}
+{% if examples and examples.size > 0 %}
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>openEHR Template</th>
+      <th>Description</th>
+      <th>Available formats</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for ex in examples %}
+    <tr>
+      <td><a href="{{ ex.page }}">{{ ex.title }}</a></td>
+      <td><code>{{ ex.template }}</code></td>
+      <td>{{ ex.description }}</td>
+      <td>
+        {% if ex.formats.flat %}<span class="openehr-format-badge openehr-format-flat">FLAT</span> {% endif %}
+        {% if ex.formats.structured %}<span class="openehr-format-badge openehr-format-structured">STRUCTURED</span> {% endif %}
+        {% if ex.formats.canonical %}<span class="openehr-format-badge openehr-format-canonical">CANONICAL</span> {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><em>No openEHR composition examples registered yet. Add entries to <code>input/data/openehr_examples.json</code>.</em></p>
+{% endif %}

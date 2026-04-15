@@ -1,0 +1,41 @@
+{% comment %}
+  openehr-templates-table.html — renders a summary table of openEHR templates used in this IG.
+
+  Data source: input/data/openehr_templates.json (maps to site.data.openehr_templates via Jekyll _data/).
+
+  Each entry in the JSON must have:
+    id           - unique identifier
+    templateId   - full openEHR template ID string
+    version      - semantic version
+    description  - one-line description
+    rootArchetype - root archetype node ID
+
+  To add a new template: add an entry to input/data/openehr_templates.json and place
+  the corresponding .json and .opt files in input/includes/openehr-input/templates/.
+{% endcomment %}
+
+{% assign templates = site.data.openehr_templates %}
+{% if templates and templates.size > 0 %}
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Template ID</th>
+      <th>Version</th>
+      <th>Root Archetype</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in templates %}
+    <tr>
+      <td><code>{{ t.templateId }}</code></td>
+      <td>{{ t.version }}</td>
+      <td><code>{{ t.rootArchetype }}</code></td>
+      <td>{{ t.description }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><em>No templates registered yet. Add entries to <code>input/data/openehr_templates.json</code>.</em></p>
+{% endif %}

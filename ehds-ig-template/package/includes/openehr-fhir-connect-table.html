@@ -1,0 +1,42 @@
+{% comment %}
+  openehr-fhir-connect-table.html — renders a summary table of openEHR-FHIR Connect mappings.
+
+  Data source: input/data/openehr_fhir_connect.json (maps to site.data.openehr_fhir_connect via Jekyll _data/).
+
+  Each entry in the JSON must have:
+    id           - unique identifier
+    title        - display title (linked to the detail page if page is provided)
+    description  - one-line description
+    page         - target HTML page (optional)
+    fhirResource - FHIR resource or profile being mapped (e.g. "Observation", "DiagnosticReport")
+    template     - openEHR template ID being mapped
+
+  To add a new mapping: add an entry to input/data/openehr_fhir_connect.json and
+  place any mapping files in input/includes/openehr-input/fhir-connect/.
+{% endcomment %}
+
+{% assign mappings = site.data.openehr_fhir_connect %}
+{% if mappings and mappings.size > 0 %}
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Mapping</th>
+      <th>FHIR Resource</th>
+      <th>openEHR Template</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for m in mappings %}
+    <tr>
+      <td>{% if m.page %}<a href="{{ m.page }}">{{ m.title }}</a>{% else %}{{ m.title }}{% endif %}</td>
+      <td><code>{{ m.fhirResource }}</code></td>
+      <td><code>{{ m.template }}</code></td>
+      <td>{{ m.description }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><em>No FHIR Connect mappings registered yet. Add entries to <code>input/data/openehr_fhir_connect.json</code>.</em></p>
+{% endif %}

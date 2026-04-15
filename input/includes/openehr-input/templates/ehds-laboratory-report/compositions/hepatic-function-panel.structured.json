@@ -1,0 +1,257 @@
+{
+  "generic_laboratory_report": {
+    "_uid": {
+      "value": "ba0c538d-7473-4741-b64c-60d0b62ed547::default::1"
+    },
+    "_feeder_audit": {
+      "originating_system_audit": {
+        "system_id": "FormRenderer"
+      },
+      "original_content": {
+        "value": "{}",
+        "formalism": "application/json"
+      }
+    },
+    "language": {
+      "code_string": "en",
+      "terminology_id": {
+        "value": "ISO_639-1"
+      }
+    },
+    "territory": {
+      "code_string": "SI",
+      "terminology_id": {
+        "value": "ISO_3166-1"
+      }
+    },
+    "context": {
+      "report_id": {
+        "value": "LabTest01"
+      },
+      "recipient": {
+        "name": {
+          "value": "Dr Mark Willis"
+        },
+        "identifier": {
+          "value": "12398813"
+        },
+        "organisation": {
+          "name": {
+            "value": "TD008362 PATH LAB 001"
+          },
+          "identifier": [
+            {
+              "value": "Y8J7D",
+              "issuer": "https://fhir.nhs.uk/Id/ods-organization-code"
+            }
+          ],
+          "comment": {
+            "value": "Organization resource in FHIR"
+          }
+        }
+      },
+      "start_time": {
+        "value": "2026-03-12T23:41:00.77633228+01:00"
+      },
+      "setting": {
+        "value": "other care",
+        "code_string": "238",
+        "terminology_id": {
+          "value": "openehr"
+        }
+      }
+    },
+    "service_request": {
+      "_uid": {
+        "value": "0b84ee3f-5add-4335-adda-2502efa256b1"
+      },
+      "current_activity": [
+        {
+          "service_name": {
+            "value": "Hepatic function panel"
+          },
+          "reason_for_request": [
+            {
+              "value": "Jaundice"
+            }
+          ],
+          "specimen": {
+            "specimen_type": {
+              "value": "Blood"
+            },
+            "collection_date_time": {
+              "date_time_value": {
+                "value": "2026-03-11T00:00:00Z"
+              }
+            }
+          },
+          "timing": {
+            "value": "R1",
+            "formalism": "timing"
+          }
+        }
+      ],
+      "requester_order_identifier": {
+        "identifier_value": {
+          "value": "REQ-20220307-000046-001"
+        }
+      },
+      "order_placer": {
+        "name": {
+          "value": "Dr David Derbyshire"
+        },
+        "identifier": {
+          "value": "6599124"
+        },
+        "organisation": {
+          "name": {
+            "value": "PICKERING MEDICAL PRACTICE"
+          },
+          "identifier": [
+            {
+              "value": "134350950"
+            }
+          ]
+        }
+      },
+      "receiver_order_identifier": {
+        "identifier_value": {
+          "value": "REQ-20220307-000046"
+        }
+      },
+      "narrative": {
+        "value": "<none>"
+      },
+      "language": {
+        "code_string": "en",
+        "terminology_id": {
+          "value": "ISO_639-1"
+        }
+      },
+      "encoding": {
+        "code_string": "UTF-8",
+        "terminology_id": {
+          "value": "IANA_character-sets"
+        }
+      }
+    },
+    "laboratory_test_result": [
+      {
+        "_uid": {
+          "value": "423bcfa4-f69a-49c4-b641-686492dc8ca6"
+        },
+        "requested_test": {
+          "value": "Hepatic function panel"
+        },
+        "specimen": [
+          {
+            "specimen_type": {
+              "value": "Blood"
+            },
+            "collection_date_time": {
+              "date_time_value": {
+                "value": "2026-03-11T00:00:00Z"
+              }
+            },
+            "adequacy_for_testing": {
+              "value": "Satisfactory",
+              "code_string": "at0062",
+              "terminology_id": {
+                "value": "local"
+              }
+            }
+          }
+        ],
+        "overall_test_status": [
+          {
+            "value": "Final",
+            "code_string": "at0038",
+            "terminology_id": {
+              "value": "local"
+            }
+          }
+        ],
+        "overall_test_status_timestamp": {
+          "value": "2026-03-11T00:00:00Z"
+        },
+        "diagnostic_service_category": {
+          "value": "Biochemistry"
+        },
+        "laboratory_analyte_result": [
+          {
+            "analyte_name": {
+              "value": "Total bilirubin substance concentration in serum"
+            },
+            "analyte_result": {
+              "quantity_value": {
+                "magnitude": 6,
+                "unit": "umol/L"
+              }
+            },
+            "reference_range_guidance": {
+              "value": "< 21"
+            },
+            "status": {
+              "value": "Final",
+              "code_string": "at0018",
+              "terminology_id": {
+                "value": "local"
+              }
+            }
+          },
+          {
+            "analyte_name": {
+              "value": "Alkaline phosphatase liver isoenzyme enzyme activity in serum"
+            },
+            "analyte_result": {
+              "quantity_value": {
+                "magnitude": 145,
+                "unit": "iu/L"
+              }
+            },
+            "reference_range_guidance": {
+              "value": "30 - 130"
+            },
+            "status": {
+              "value": "Final",
+              "code_string": "at0018",
+              "terminology_id": {
+                "value": "local"
+              }
+            },
+            "comment": {
+              "value": "High"
+            }
+          }
+        ],
+        "time": {
+          "value": "2026-03-12T23:41:00.77633228+01:00"
+        },
+        "language": {
+          "code_string": "en",
+          "terminology_id": {
+            "value": "ISO_639-1"
+          }
+        },
+        "encoding": {
+          "code_string": "UTF-8",
+          "terminology_id": {
+            "value": "IANA_character-sets"
+          }
+        }
+      }
+    ],
+    "category": {
+      "value": "event",
+      "code_string": "433",
+      "terminology_id": {
+        "value": "openehr"
+      }
+    },
+    "composer": {
+      "name": {
+        "value": "ian.bennett@better.care"
+      }
+    }
+  }
+}
