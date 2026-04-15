@@ -41,27 +41,27 @@
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0 0.4em 0;
-  color: #2d457e;
+/* openEHR example collapsible sections */
+.openehr-example-set details {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.openehr-example-set details summary {
+  padding: 6px 10px;
+  background: #f5f5f5;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.openehr-example-set details summary::-webkit-details-marker { display: none; }
+.openehr-example-set details pre {
+  margin: 0;
+  border-radius: 0 0 4px 4px;
 }
 
-p, li {
-  font-size: 13px;
-}
-
-table.grid td {
-  font-size: 13px;
-}
-h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0 0.4em 0;
-  color: #2d457e;
-}
-
-p, li {
-  font-size: 13px;
-}
-
-table.grid td {
-  font-size: 13px;
-}
+/* Show/hide expand-collapse indicators based on <details> open state */
+.openehr-example-set details .openehr-details-open   { display: none; font-size: 0.8em; color: #666; }
+.openehr-example-set details .openehr-details-closed { display: inline; font-size: 0.8em; color: #666; }
+.openehr-example-set details[open] .openehr-details-open   { display: inline; }
+.openehr-example-set details[open] .openehr-details-closed { display: none; }
