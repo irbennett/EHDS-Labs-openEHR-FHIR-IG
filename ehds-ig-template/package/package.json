@@ -1,0 +1,12 @@
+{
+  "name": "ehds.example.fhir.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "FHIR IG template with Xt-EHR-style chrome for ExampleIG_Ian (openEHR data exchange)",
+  "author": "http://hl7.org/fhir",
+  "base": "openehr.fhir.template",
+  "dependencies": {
+    "openehr.fhir.template": "current"
+  }
+}

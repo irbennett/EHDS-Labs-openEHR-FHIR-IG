@@ -1,0 +1,77 @@
+{% comment %}
+  openehr-example.html — render openEHR composition examples as collapsible sections.
+
+  Files must be placed in input/includes/openehr-input/templates/{templateDir}/compositions/
+  using the naming convention:
+    {base}.flat.json       — openEHR FLAT (path-key) JSON
+    {base}.structured.json — openEHR STRUCTURED JSON
+    {base}.canonical.json  — openEHR CANONICAL JSON
+
+  The templateDir is resolved automatically from site.data.openehr_examples by matching base.
+  It can also be passed explicitly via the template parameter (takes precedence).
+
+  Parameters:
+    base       (required) Base name shared by the format files, e.g. "ips-composition-example".
+    template   (optional) Override the templateDir lookup.
+    title      (optional) Human-readable heading shown above the sections.
+    flat       Set to true to render the FLAT JSON section.
+    structured Set to true to render the STRUCTURED JSON section.
+    canonical  Set to true to render the CANONICAL JSON section.
+
+  The first available format is expanded by default; others are collapsed.
+  Each section has a copy button using the publisher's bundled ClipboardJS (.btn-copy).
+  Prefer using oeExample.html which looks up format flags automatically from openehr_examples.json.
+{% endcomment %}
+
+{% assign _oe_show_flat       = false %}
+{% assign _oe_show_structured = false %}
+{% assign _oe_show_canonical  = false %}
+{% if include.flat       == true or include.flat       == "true" %}{% assign _oe_show_flat       = true %}{% endif %}
+{% if include.structured == true or include.structured == "true" %}{% assign _oe_show_structured = true %}{% endif %}
+{% if include.canonical  == true or include.canonical  == "true" %}{% assign _oe_show_canonical  = true %}{% endif %}
+
+{% assign _oe_first = "" %}
+{% if _oe_show_flat       and _oe_first == "" %}{% assign _oe_first = "flat"       %}{% endif %}
+{% if _oe_show_structured and _oe_first == "" %}{% assign _oe_first = "structured" %}{% endif %}
+{% if _oe_show_canonical  and _oe_first == "" %}{% assign _oe_first = "canonical"  %}{% endif %}
+
+{% assign _oe_id = include.base | replace: ".", "-" | replace: "_", "-" | downcase %}
+
+{% comment %} Resolve templateDir: explicit parameter takes precedence, otherwise look up by base. {% endcomment %}
+{% if include.template and include.template != "" %}
+  {% assign _oe_template_dir = include.template %}
+{% else %}
+  {% assign _oe_template_dir = "" %}
+  {% for _oe_ex in site.data.openehr_examples %}
+    {% if _oe_ex.base == include.base %}{% assign _oe_template_dir = _oe_ex.templateDir %}{% endif %}
+  {% endfor %}
+{% endif %}
+{% assign _oe_comp_prefix = "openehr-input/templates/" | append: _oe_template_dir | append: "/compositions/" %}
+
+<div class="openehr-example-set">
+{% if include.title %}<h4 class="openehr-example-title">{{ include.title }}</h4>{% endif %}
+{% if _oe_show_flat %}
+{% assign _oe_flat_file = _oe_comp_prefix | append: include.base | append: ".flat.json" %}
+{% capture _oe_flat_content %}{% include {{ _oe_flat_file }} %}{% endcapture %}
+<details{% if _oe_first == "flat" %} open{% endif %}>
+  <summary><strong>FLAT JSON</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oe_id }}-flat"></button></summary>
+  <pre><code class="language-json" id="{{ _oe_id }}-flat">{{ _oe_flat_content | xml_escape }}</code></pre>
+</details>
+{% endif %}
+{% if _oe_show_structured %}
+{% assign _oe_structured_file = _oe_comp_prefix | append: include.base | append: ".structured.json" %}
+{% capture _oe_structured_content %}{% include {{ _oe_structured_file }} %}{% endcapture %}
+<details{% if _oe_first == "structured" %} open{% endif %}>
+  <summary><strong>STRUCTURED JSON</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oe_id }}-structured"></button></summary>
+  <pre><code class="language-json" id="{{ _oe_id }}-structured">{{ _oe_structured_content | xml_escape }}</code></pre>
+</details>
+{% endif %}
+{% if _oe_show_canonical %}
+{% assign _oe_canonical_file = _oe_comp_prefix | append: include.base | append: ".canonical.json" %}
+{% capture _oe_canonical_content %}{% include {{ _oe_canonical_file }} %}{% endcapture %}
+<details{% if _oe_first == "canonical" %} open{% endif %}>
+  <summary><strong>CANONICAL JSON</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oe_id }}-canonical"></button></summary>
+  <pre><code class="language-json" id="{{ _oe_id }}-canonical">{{ _oe_canonical_content | xml_escape }}</code></pre>
+</details>
+{% endif %}
+</div>

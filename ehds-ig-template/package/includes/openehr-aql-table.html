@@ -1,0 +1,46 @@
+{% comment %}
+  openehr-aql-table.html — renders a summary table of all openEHR AQL query examples.
+
+  Data source: input/data/openehr_aql.json (maps to site.data.openehr_aql via Jekyll _data/).
+
+  Each entry in the JSON must have:
+    id          - unique identifier
+    title       - display title (linked to the detail page)
+    description - one-line description
+    page        - target HTML page (e.g. "aql-view-lab-results.html")
+    parameters  - array of parameter names (e.g. [":ehrId", ":dateFrom"])
+    archetype   - primary openEHR archetype queried
+
+  To add a new AQL example: add an entry to input/data/openehr_aql.json
+  and create the corresponding markdown page.
+{% endcomment %}
+
+{% assign aql_queries = site.data.openehr_aql %}
+{% if aql_queries and aql_queries.size > 0 %}
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Query</th>
+      <th>Archetype</th>
+      <th>Description</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for q in aql_queries %}
+    <tr>
+      <td><a href="{{ q.page }}">{{ q.title }}</a></td>
+      <td><code>{{ q.archetype }}</code></td>
+      <td>{{ q.description }}</td>
+      <td>
+        {% for p in q.parameters %}
+          <code class="cm-s-ehrexplorer"><span class="cm-parameter">{{ p | xml_escape }}</span></code>{% unless forloop.last %} {% endunless %}
+        {% endfor %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><em>No AQL queries registered yet. Add entries to <code>input/data/openehr_aql.json</code>.</em></p>
+{% endif %}

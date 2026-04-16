@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/output/en/artifacts*)",
+      "Bash(ls /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/template/content/assets/js/*.js)",
+      "Bash(grep -rn \"nav-tabs\" /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/temp/pages/*.js)",
+      "Bash(grep -rn \"aql-format\\\\|highlightAql\\\\|initOpenEHR\" /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/output/en/*.html)",
+      "Bash(xargs cat:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(mv /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/template/includes/oe.html /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/template/includes/oeExample.html)",
+      "Bash(mv /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/includes/oe.html /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/includes/oeExample.html)",
+      "Bash(mv compositions/generic-lab-report-example.flat.json       compositions/hepatic-function-panel.flat.json)",
+      "Bash(mv compositions/generic-lab-report-example.structured.json  compositions/hepatic-function-panel.structured.json)",
+      "Bash(mv aql/example.aql               aql/aql-view-lab-results.aql)",
+      "Bash(mv aql/lab-tests-patient.aql     aql/placeholder-example.aql)",
+      "Bash(mv aql/ips-composition.aql       aql/aql-view-IPS-composition.aql)",
+      "Bash(grep -A 20 \"^\\\\`\\\\`\\\\`aql\")",
+      "Bash(git mv:*)",
+      "Bash(rm /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/content/assets/js/openehr-init.js)",
+      "Bash(rm -rf /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/content/assets/js/aql-format)"
+    ]
+  }
+}

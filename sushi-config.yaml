@@ -7,21 +7,21 @@
 id: openehr.ehds.fhir.dataexchange
 # GitHub Pages project site: https://<github-username>.github.io/<repo-name>/
 # Change username/repo if yours differ, then run sushi before publishing.
-canonical: https://ianbennett.github.io/ExampleIG_Ian
+canonical: http://openehr.org/ig/ehds-test
 # Machine-oriented name (ASCII, no spaces) — appears as "Computable Name" in the IG.
-name: OpenEHREHDSDataExchange
+name: OpenEHREHDSTestIG
 # Human-readable title in the IG header, yellow banner, and browser tab (edit this string)
-title: EHDS openEHR data exchange
+title: EHDS openEHR Test IG
 description: FHIR Implementation Guide supporting data exchange using openEHR
 status: draft # draft | active | retired | unknown
-version: 0.1.0
+version: 0.2.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
-copyrightYear: 2025+
+copyrightYear: 2026+
 releaseLabel: ci-build
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
-  name: Ian
+  name: openEHR
   url: http://example.org/example-publisher
   # email: test@example.org
 
@@ -29,7 +29,8 @@ publisher:
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 dependencies:
-  openehr.base: 0.1.0-snapshot
+  openehr.base: current
+
 
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -45,16 +46,28 @@ dependencies:
 pages:
   index.md:
     title: Home
-  examples.md:
-    title: Examples
-    hepatic-function-panel.md:
-      title: Hepatic function panel
-    placeholder-example.md:
-      title: AQL view lab tests
-    aql-view-lab-results.md:
-      title: AQL View lab results
+  openehr-artefacts.md:
+    title: openEHR Artefacts
+    openehr-templates.md:
+      title: Templates
+    openehr-compositions.md:
+      title: Composition Examples
+      hepatic-function-panel.md:
+        title: Hepatic Function Panel
+      ips-composition-example.md:
+        title: IPS Composition Example
+    openehr-aql.md:
+      title: AQL Queries
+      placeholder-example.md:
+        title: AQL view lab tests
+      aql-view-lab-results.md:
+        title: AQL View lab results
+      aql-view-IPS-composition.md:
+        title: AQL View IPS Composition
+    openehr-fhir-connect.md:
+      title: FHIR Connect Mappings
   artifacts.xml:
-    title: Artifacts
+    title: FHIR Artifacts
 
 #
 # The parameters property represents IG.definition.parameter. Rather
@@ -80,12 +93,14 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Examples:
-    Examples overview: examples.html
-    Hepatic function panel: hepatic-function-panel.html
-    AQL view lab tests: placeholder-example.html
-    AQL View lab results: aql-view-lab-results.html
-  Artifacts: artifacts.html
+  EHDS Labs: StructureDefinition-OLCarerContingencyPlan.html
+  openEHR Artefacts:
+    Overview: openehr-artefacts.html
+    Templates: openehr-templates.html
+    Composition Examples: openehr-compositions.html
+    AQL Queries: openehr-aql.html
+    FHIR Connect: openehr-fhir-connect.html
+  FHIR Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │

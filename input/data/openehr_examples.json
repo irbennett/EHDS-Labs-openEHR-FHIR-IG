@@ -1,0 +1,28 @@
+[
+  {
+    "base": "hepatic-function-panel",
+    "title": "Generic Laboratory Report — Hepatic Function Panel",
+    "description": "Composition with ALP and Bilirubin analyte results from a hepatic function panel. Can be POSTed to an openEHR CDR.",
+    "page": "hepatic-function-panel.html",
+    "template": "EHDS - Laboratory report",
+    "templateDir": "ehds-laboratory-report",
+    "formats": {
+      "flat": true,
+      "structured": true,
+      "canonical": true
+    }
+  },
+  {
+    "base": "ips-composition-example",
+    "title": "International Patient Summary Composition",
+    "description": "IPS composition instance in FLAT JSON format. Demonstrates the mapping from FHIR IPS resources to an openEHR composition.",
+    "page": "ips-composition-example.html",
+    "template": "International Patient Summary",
+    "templateDir": "international-patient-summary",
+    "formats": {
+      "flat": true,
+      "structured": false,
+      "canonical": false
+    }
+  }
+]

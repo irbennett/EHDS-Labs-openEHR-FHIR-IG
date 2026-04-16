@@ -1,0 +1,10 @@
+[
+  {
+    "id": "eehrxf-lab-analyte",
+    "title": "Laboratory Test Analyte",
+    "description": "Maps a FHIR Observation (hasMember) to an openEHR Laboratory Test Analyte cluster, supporting recurring analyte observations.",
+    "fhirResource": "Observation",
+    "template": "CLUSTER.laboratory_test_analyte.v1",
+    "file": "lab_analyte.yml"
+  }
+]

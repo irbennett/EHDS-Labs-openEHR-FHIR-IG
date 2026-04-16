@@ -1,0 +1,35 @@
+[
+  {
+    "id": "lab-tests-patient",
+    "title": "Lab Tests for Patient",
+    "description": "Returns all lab test compositions for a patient within a date range. Ordered by composition date descending.",
+    "page": "placeholder-example.html",
+    "templateDir": "",
+    "base": "",
+    "response": false,
+    "parameters": [":ehrId", ":dateFrom", ":dateTo"],
+    "archetype": "openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+  },
+  {
+    "id": "lab-results-composition",
+    "title": "Lab Results by Composition",
+    "description": "Returns analyte-level results for a single laboratory report composition identified by its UID.",
+    "page": "aql-view-lab-results.html",
+    "templateDir": "ehds-laboratory-report",
+    "base": "aql-view-lab-results",
+    "response": false,
+    "parameters": [":compositionIdLab"],
+    "archetype": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+  },
+  {
+    "id": "ips-composition",
+    "title": "IPS Composition",
+    "description": "Returns the most recent persisted IPS composition in CANONICAL format for a given EHR and template.",
+    "page": "aql-view-IPS-composition.html",
+    "templateDir": "",
+    "base": "",
+    "response": false,
+    "parameters": ["{{ehrId}}", "{{templateId}}"],
+    "archetype": "openEHR-EHR-COMPOSITION.health_summary.v1"
+  }
+]

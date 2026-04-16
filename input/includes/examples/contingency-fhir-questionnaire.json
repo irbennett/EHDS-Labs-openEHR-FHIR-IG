@@ -1,0 +1,906 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "OL - Carer contingency plan",
+  "language": "en",
+  "version": "1.0.0",
+  "identifier": [
+    {
+      "system": "http://example.org/openEHR/templates",
+      "value": "OL - Carer contingency plan"
+    }
+  ],
+  "name": "OL-Carercontingencyplan",
+  "title": "OL - Carer contingency plan",
+  "status": "draft",
+  "publisher": "converter",
+  "date": "2026-03-25T15:48:14+01:00",
+  "description": "A framework to communicate information that has been captured and curated in anticipation of future need for care.",
+  "item": [
+    {
+      "linkId": "ol_-_carer_contingency_plan",
+      "text": "OL - Carer contingency plan",
+      "type": "group",
+      "item": [
+        {
+          "required": true,
+          "repeats": false,
+          "linkId": "ol_-_carer_contingency_plan/context",
+          "text": "Context",
+          "type": "group",
+          "item": [
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/context/xds_metadata",
+              "text": "XDS Metadata",
+              "type": "group",
+              "item": [
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/author_specialty",
+                  "text": "Author specialty",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/class_code",
+                  "text": "Class code",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/document_type",
+                  "text": "Document type",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/confidentiality_code",
+                  "text": "Confidentiality code",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/health_care_facility_type",
+                  "text": "Health care facility type",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/practice_setting_code",
+                  "text": "Practice setting code",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": true,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/event_code",
+                  "text": "Event code",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/xds_metadata/document_media",
+                  "text": "Document_media",
+                  "type": "attachment"
+                }
+              ]
+            },
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata",
+              "text": "Care journey metadata",
+              "type": "group",
+              "item": [
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/care_plan_name",
+                  "text": "Care plan name",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/care_plan_identifier",
+                  "text": "Care plan identifier",
+                  "type": "group",
+                  "item": [
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/care_plan_identifier/text_value",
+                      "text": "Care plan identifier",
+                      "type": "text"
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/care_plan_identifier/identifier_value",
+                      "text": "Care plan identifier",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/patient_journey_identifier",
+                  "text": "Patient journey identifier",
+                  "type": "group",
+                  "item": [
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/patient_journey_identifier/text_value",
+                      "text": "Patient journey identifier",
+                      "type": "text"
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/context/care_journey_metadata/patient_journey_identifier/identifier_value",
+                      "text": "Patient journey identifier",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "required": false,
+          "repeats": false,
+          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities",
+          "text": "Personal responsibilities",
+          "type": "group",
+          "item": [
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/responsibilities_status",
+              "text": "Responsibilities status",
+              "type": "choice",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "at0037",
+                    "display": "No critical responsibilities"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "at0038",
+                    "display": "Has primary carer/parental responsibilities"
+                  }
+                }
+              ]
+            },
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/description",
+              "text": "Description",
+              "type": "text"
+            },
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility",
+              "text": "Primary carer /parental responsibility",
+              "type": "group",
+              "item": [
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/care_contingency_plan_status",
+                  "text": "Care contingency plan status",
+                  "type": "choice",
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "system": "SNOMED-CT",
+                        "code": "136632100000010",
+                        "display": "Has Carer Contingency Plan / Has Carer Emergency Plan"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "system": "SNOMED-CT",
+                        "code": "199361000000101",
+                        "display": "Is no longer a carer"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/cared_for_person",
+                  "text": "Cared for person",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/how_long_can_they_wait_on_their_own",
+                  "text": "How long can they wait on their own",
+                  "type": "text"
+                },
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer",
+                  "text": "Replacement carer",
+                  "type": "group",
+                  "item": [
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member",
+                      "text": "Member",
+                      "type": "group",
+                      "item": [
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/relationship",
+                          "text": "Relationship",
+                          "type": "open-choice",
+                          "answerOption": [
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "NOK",
+                                "display": "Next of Kin"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "AUNT",
+                                "display": "Aunt"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "BRO",
+                                "display": "Brother"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "BIL",
+                                "display": "Brother-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "COHABIT",
+                                "display": "Cohabitee"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "COUSIN",
+                                "display": "Cousin"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "DAU",
+                                "display": "Daughter"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "DIL",
+                                "display": "Daughter-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "FIL",
+                                "display": "Father-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "FOSTER",
+                                "display": "Foster Carer"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "FRIEND",
+                                "display": "Friend"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "GCHILD",
+                                "display": "Grandchild"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "GPARENT",
+                                "display": "Grandparent"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "HALFBRO",
+                                "display": "Half Brother"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "HALFSIS",
+                                "display": "Half Sister"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "HUSBAND",
+                                "display": "Husband"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "MIL",
+                                "display": "Mother-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "NEPHEW",
+                                "display": "Nephew"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "NIECE",
+                                "display": "Niece"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "PARENT",
+                                "display": "Parent"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "PARTNER",
+                                "display": "Partner"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "SIS",
+                                "display": "Sister"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "SIL",
+                                "display": "Sister-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "SON",
+                                "display": "Son"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "SOIL",
+                                "display": "Son-in-Law"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "STEPBRO",
+                                "display": "Step Brother"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "STEPCHILD",
+                                "display": "Step Child"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "STEPPARENT",
+                                "display": "Step Parent"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "STEPSIS",
+                                "display": "Step Sister"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "UNCLE",
+                                "display": "Uncle"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "WIFE",
+                                "display": "Wife"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "OTHER",
+                                "display": "Other"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-Relationship",
+                                "code": "PARENTALRESP",
+                                "display": "Has Parental Responsibility"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/primary_contact",
+                          "text": "Primary contact",
+                          "type": "choice",
+                          "answerOption": [
+                            {
+                              "valueCoding": {
+                                "system": "OL-PrimaryPersonalContact",
+                                "code": "PRIMARYPERSONALCONTACT",
+                                "display": "Primary personal contact"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "OL-PrimaryPersonalContact",
+                                "code": "NOK",
+                                "display": "Next of Kin"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/support_contact_type",
+                          "text": "Support contact type",
+                          "type": "choice",
+                          "answerOption": [
+                            {
+                              "valueCoding": {
+                                "system": "CMC-SupportContactType",
+                                "code": "PERSONAL",
+                                "display": "Personal"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-SupportContactType",
+                                "code": "POA",
+                                "display": "Health and Welfare Power of Attorney"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-SupportContactType",
+                                "code": "PARENTALRESP",
+                                "display": "Has Parental Responsibility"
+                              }
+                            },
+                            {
+                              "valueCoding": {
+                                "system": "CMC-SupportContactType",
+                                "code": "DEPHW",
+                                "display": "Health and Welfare Deputy"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": false,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/additional_information",
+                          "text": "Additional information",
+                          "type": "text"
+                        },
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/name",
+                          "text": "Name",
+                          "type": "group",
+                          "item": [
+                            {
+                              "required": true,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/name/use",
+                              "text": "Use",
+                              "type": "choice",
+                              "answerOption": [
+                                {
+                                  "valueCoding": {
+                                    "code": "at0002",
+                                    "display": "Usual"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/name/contact_name",
+                              "text": "Contact name",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/telecom_contact",
+                          "text": "Telecom contact",
+                          "type": "group",
+                          "item": [
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/telecom_contact/contact_type",
+                              "text": "Contact type",
+                              "type": "choice",
+                              "answerOption": [
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "EMAIL",
+                                    "display": "EMail"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "FAX",
+                                    "display": "Fax"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "HOME",
+                                    "display": "Home Phone"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "MOBILE",
+                                    "display": "Mobile Phone"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "OFFICE",
+                                    "display": "Office Phone"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "OTHER",
+                                    "display": "Other Phone"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-ContactType",
+                                    "code": "WORK",
+                                    "display": "Work Phone"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/telecom_contact/contact_value",
+                              "text": "Contact value",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": true,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address",
+                          "text": "Address",
+                          "type": "group",
+                          "item": [
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/address_use",
+                              "text": "Address Use",
+                              "type": "choice",
+                              "answerOption": [
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "BILLING",
+                                    "display": "Billing Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "HOME",
+                                    "display": "Residence Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "LEGAL",
+                                    "display": "Legal Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "MAILING",
+                                    "display": "Mailing Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "MEDREC",
+                                    "display": "Medical Records Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "OTHER",
+                                    "display": "Other Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "PERSONAL",
+                                    "display": "Personal Address"
+                                  }
+                                },
+                                {
+                                  "valueCoding": {
+                                    "system": "CMC-LocationType",
+                                    "code": "PRACTICE",
+                                    "display": "Practice Address"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/street",
+                              "text": "Street",
+                              "type": "text"
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/street2",
+                              "text": "Street2",
+                              "type": "text"
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/city",
+                              "text": "City",
+                              "type": "text"
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/county",
+                              "text": "County",
+                              "type": "text"
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/postal_code",
+                              "text": "Postal code",
+                              "type": "text"
+                            },
+                            {
+                              "required": false,
+                              "repeats": false,
+                              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/address/country",
+                              "text": "Country",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "required": false,
+                          "repeats": false,
+                          "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/member/date_added",
+                          "text": "Date added",
+                          "type": "dateTime"
+                        }
+                      ]
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/has_the_person_consented_to_the_replacement",
+                      "text": "Has the person consented to the replacement",
+                      "type": "choice",
+                      "answerOption": [
+                        {
+                          "valueCoding": {
+                            "code": "at0033",
+                            "display": "Yes"
+                          }
+                        },
+                        {
+                          "valueCoding": {
+                            "code": "at0034",
+                            "display": "No"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/replacement_has_consented_to_being_contacted",
+                      "text": "Replacement has consented to being contacted",
+                      "type": "choice",
+                      "answerOption": [
+                        {
+                          "valueCoding": {
+                            "code": "at0031",
+                            "display": "Yes"
+                          }
+                        },
+                        {
+                          "valueCoding": {
+                            "code": "at0032",
+                            "display": "No"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/replacement_has_consented_to_acting_in_that_role",
+                      "text": "Replacement has consented to acting in that role",
+                      "type": "choice",
+                      "answerOption": [
+                        {
+                          "valueCoding": {
+                            "code": "at0027",
+                            "display": "Yes"
+                          }
+                        },
+                        {
+                          "valueCoding": {
+                            "code": "at0028",
+                            "display": "No"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "required": false,
+                      "repeats": false,
+                      "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/primary_carer_parental_responsibility/replacement_carer/replacement_has_a_copy_of_contingency_plan",
+                      "text": "Replacement has a copy of contingency plan",
+                      "type": "choice",
+                      "answerOption": [
+                        {
+                          "valueCoding": {
+                            "code": "at0029",
+                            "display": "Yes"
+                          }
+                        },
+                        {
+                          "valueCoding": {
+                            "code": "at0030",
+                            "display": "No"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "required": false,
+              "repeats": true,
+              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/pet",
+              "text": "Pet",
+              "type": "group",
+              "item": [
+                {
+                  "required": false,
+                  "repeats": false,
+                  "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/pet/pet_details",
+                  "text": "Pet details",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "required": false,
+              "repeats": false,
+              "linkId": "ol_-_carer_contingency_plan/personal_responsibilities/date_last_updated",
+              "text": "Date last updated",
+              "type": "dateTime"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
