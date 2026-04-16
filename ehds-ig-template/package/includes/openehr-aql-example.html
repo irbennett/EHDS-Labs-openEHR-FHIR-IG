@@ -12,7 +12,8 @@
     title     (optional) Human-readable heading shown above the sections.
     response  Set to true to render the Response JSON section.
 
-  AQL is rendered using language-sql highlighting (closest available in highlight.js).
+  AQL is rendered with CodeMirror AQL mode; the code block must use class language-aql
+  (see openehr-init.js highlightAql()).
   Each section has a copy button using the publisher's bundled ClipboardJS (.btn-copy).
   Prefer using oeAql.html which looks up template, base, and response flag from openehr_aql.json.
 {% endcomment %}
@@ -29,7 +30,7 @@
 {% capture _oa_aql_content %}{% include {{ _oa_aql_file }} %}{% endcapture %}
 <details open>
   <summary><strong>AQL</strong> <span class="openehr-details-open">&#9660; collapse</span><span class="openehr-details-closed">&#9654; expand</span> <button class="btn-copy" title="Copy to clipboard" data-clipboard-target="#{{ _oa_id }}-aql"></button></summary>
-  <pre><code class="language-sql" id="{{ _oa_id }}-aql">{{ _oa_aql_content | xml_escape }}</code></pre>
+  <pre><code class="language-aql" id="{{ _oa_id }}-aql">{{ _oa_aql_content | xml_escape }}</code></pre>
 </details>
 {% if _oa_show_response %}
 {% assign _oa_response_file = _oa_aql_prefix | append: include.base | append: ".response.json" %}
