@@ -12,6 +12,31 @@ function highlightAql() {
   });
 }
 
+function prettyPrintJsonCode(codeEl, formatter) {
+  if (codeEl.hasAttribute('data-json-processed')) return;
+  var pre = codeEl.parentElement;
+  if (!pre || pre.tagName !== 'PRE') return;
+
+  var raw = codeEl.textContent.trim();
+  var pretty;
+  try {
+    pretty = JSON.stringify(JSON.parse(raw), null, 2);
+  } catch (e) {
+    pretty = raw;
+  }
+
+  pre.classList.add('cm-s-ehrexplorer');
+  pre.classList.add('openehr-json-pre');
+  codeEl.classList.add('openehr-json-code');
+
+  formatter.highlightJson(pretty, codeEl);
+  var after = codeEl.innerText || codeEl.textContent || '';
+  if (pretty.indexOf('\n') >= 0 && after.indexOf('\n') < 0) {
+    codeEl.textContent = pretty;
+  }
+  codeEl.setAttribute('data-json-processed', 'true');
+}
+
 function initOpenEHRExamples() {
   var formatter = new AqlFormatter();
   document.querySelectorAll('.openehr-example-set').forEach(function(set) {
@@ -37,17 +62,9 @@ function initOpenEHRExamples() {
       });
     });
 
-    set.querySelectorAll('.openehr-tab-pane code.language-json').forEach(function(codeEl) {
-      if (codeEl.hasAttribute('data-json-processed')) return;
-      var raw = codeEl.textContent.trim();
-      var pretty;
-      try {
-        pretty = JSON.stringify(JSON.parse(raw), null, 2);
-      } catch (e) {
-        pretty = raw;
-      }
-      formatter.highlightJson(pretty, codeEl);
-      codeEl.setAttribute('data-json-processed', 'true');
+    /* Tab panes, AQL response <details>, and any other JSON blocks in the example set */
+    set.querySelectorAll('code.language-json').forEach(function(codeEl) {
+      prettyPrintJsonCode(codeEl, formatter);
     });
   });
 }

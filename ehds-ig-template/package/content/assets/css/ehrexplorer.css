@@ -86,3 +86,16 @@ http://www.gnu.org/licenses/gpl.html
   max-height: 600px;
   overflow: auto;
 }
+
+/* Keep JSON line breaks after CodeMirror runMode (composition tabs + AQL response) */
+.openehr-example-set pre.openehr-json-pre,
+.openehr-example-set pre.openehr-json-pre code.openehr-json-code {
+  white-space: pre !important;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+.openehr-example-set pre.openehr-json-pre code.openehr-json-code {
+  display: block;
+  font-family: Consolas, Monaco, "Andale Mono", ui-monospace, monospace;
+  font-size: 0.9em;
+}
