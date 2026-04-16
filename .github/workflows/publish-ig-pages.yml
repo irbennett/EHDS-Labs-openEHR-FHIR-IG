@@ -43,7 +43,7 @@ jobs:
           set -e
           test -f ig.ini || { echo "::error::Missing ig.ini"; exit 1; }
           test -f sushi-config.yaml || { echo "::error::Missing sushi-config.yaml"; exit 1; }
-          test -d ian-ig-template/package || { echo "::error::Missing ian-ig-template/package — add ian-ig-template/ to git and push"; exit 1; }
+          test -d ehds-ig-template/package || { echo "::error::Missing ehds-ig-template/package — add ehds-ig-template/ to git and push"; exit 1; }
           test -d input/fsh || { echo "::error::Missing input/fsh"; exit 1; }
           echo "Layout OK"
 
