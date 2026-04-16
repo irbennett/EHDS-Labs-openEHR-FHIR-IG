@@ -10,4 +10,4 @@ For background on openEHR, see the [openEHR specifications](https://specificatio
 
 ### Authors and contributors
 
-This guide is maintained by the publisher identified in the Implementation Guide metadata. Suggestions and corrections are welcome via the project repository or contact details listed there.
+This guide is maintained by the publisher identified in the Implementation Guide metadata. Suggestions and corrections are welcome via the project repository or contact details listed there. Test update by IB.
