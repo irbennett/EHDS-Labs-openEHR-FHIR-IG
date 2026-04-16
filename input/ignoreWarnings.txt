@@ -4,7 +4,6 @@
 # (And include comments like this justifying why)
 # See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
 
-
 # openEHR archetype-derived CodeSystems are not registered with tx.fhir.org — expansion errors
 # are expected and benign for these locally-defined terminologies.
 A definition for CodeSystem 'http://openehr.org/archetypes/
