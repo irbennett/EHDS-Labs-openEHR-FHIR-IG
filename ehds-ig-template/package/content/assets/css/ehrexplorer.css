@@ -73,7 +73,11 @@ http://www.gnu.org/licenses/gpl.html
 .openehr-tab-pane.active {
   display: block;
 }
-.openehr-tab-pane > pre {
+.openehr-tab-copyrow {
+  margin: 0.5em 1em 0;
+  text-align: right;
+}
+.openehr-tab-pane pre {
   margin: 0;
   border: none;
   border-radius: 0 0 4px 4px;
