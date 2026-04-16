@@ -15,7 +15,9 @@
       "Bash(mv aql/lab-tests-patient.aql     aql/placeholder-example.aql)",
       "Bash(mv aql/ips-composition.aql       aql/aql-view-IPS-composition.aql)",
       "Bash(grep -A 20 \"^\\\\`\\\\`\\\\`aql\")",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(rm /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/content/assets/js/openehr-init.js)",
+      "Bash(rm -rf /Users/ian/Development/interopen/EHDS-openEHR-FHIR-IG/ehds-ig-template/package/content/assets/js/aql-format)"
     ]
   }
 }
