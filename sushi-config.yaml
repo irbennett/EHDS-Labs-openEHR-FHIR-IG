@@ -93,7 +93,7 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  EHDS Labs: StructureDefinition-OLCarerContingencyPlan.html
+  EHDS Labs: StructureDefinition-GenericLaboratoryReport.html
   openEHR Artefacts:
     Overview: openehr-artefacts.html
     Templates: openehr-templates.html
